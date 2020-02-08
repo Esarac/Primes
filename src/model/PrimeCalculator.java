@@ -7,18 +7,15 @@ public class PrimeCalculator {
 	
 	public boolean[][] generatePrimesMatrix1(int maxValue) {
 		//Matrix
-		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
-		boolean[][] primesMatrix=new boolean[rowAndColumns][rowAndColumns];
+		boolean[][] primesMatrix=generateMatrix(maxValue);
 		
 		//Number
 		for(int i=1; i<=maxValue; i++){
 			
 			//Verify
-			System.out.println("prime:"+i);
 			boolean isPrime=true;
 			for(int j=2; (j<i) && isPrime;j++){
 				if(i%j==0){
-					System.out.println("divisible por:"+j);
 					isPrime=false;
 				}
 			}
@@ -27,8 +24,6 @@ public class PrimeCalculator {
 				
 				int row=(i-1)/primesMatrix.length;
 				int column=i-((row)*primesMatrix.length)-1;
-				System.out.println((i-1)+"nb "+primesMatrix.length);
-				System.out.println(row+" "+column);
 				primesMatrix[row][column]=true;
 			}
 			
@@ -39,11 +34,34 @@ public class PrimeCalculator {
 	}
 	
 	public boolean[][] generatePrimesMatrix2(int maxValue) {
-		return null;
+		//Matrix
+		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
+		boolean[][] primesMatrix=new boolean[rowAndColumns][rowAndColumns];
+		
+		return primesMatrix;
 	}
 	
 	public boolean[][] generatePrimesMatrix3(int maxValue) {
 		return null;
+	}
+	
+	public boolean[][] generateMatrix(int maxValue){
+		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
+		boolean[][] primesMatrix=new boolean[rowAndColumns][rowAndColumns];
+		return primesMatrix;
+	}
+	
+	public int[][] generateNumberMatrix(int maxValue){
+		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
+		int[][] primesMatrix=new int[rowAndColumns][rowAndColumns];
+		
+		for(int i=1; i<=maxValue; i++){
+			int row=(i-1)/primesMatrix.length;
+			int column=i-((row)*primesMatrix.length)-1;
+			primesMatrix[row][column]=i;
+		}
+		
+		return primesMatrix;
 	}
 	
 }
