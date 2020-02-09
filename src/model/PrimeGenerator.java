@@ -2,11 +2,8 @@ package model;
 
 import java.util.Arrays;
 
-<<<<<<< HEAD
 import exception.InvalidNumberException;
 
-=======
->>>>>>> 29b2753974c22cc923cc49f27eaa321d129d0c62
 public class PrimeGenerator {
 	
 	public PrimeGenerator(){
@@ -44,7 +41,6 @@ public class PrimeGenerator {
 	public boolean[][] generatePrimesMatrix2(int maxValue) {
 		//Matrix
 		boolean[][] primesMatrix=generateMatrix(maxValue);
-<<<<<<< HEAD
 		for(boolean[] primesRow : primesMatrix){
 			Arrays.fill(primesRow, Boolean.TRUE);
 		}
@@ -71,11 +67,6 @@ public class PrimeGenerator {
 			}
 			
 		}
-=======
-		Arrays.fill(primesMatrix, Boolean.TRUE);
-		
-		
->>>>>>> 29b2753974c22cc923cc49f27eaa321d129d0c62
 		
 		return primesMatrix;
 	}
@@ -116,7 +107,6 @@ public class PrimeGenerator {
 	}
 	
 	public boolean[][] generateMatrix(int maxValue){
-<<<<<<< HEAD
 		boolean[][] primesMatrix;
 		
 		if(maxValue>=1){
@@ -126,18 +116,12 @@ public class PrimeGenerator {
 		else{
 			throw new InvalidNumberException();
 		}
-=======
-		
-		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
-		boolean[][] primesMatrix=new boolean[rowAndColumns][rowAndColumns];
->>>>>>> 29b2753974c22cc923cc49f27eaa321d129d0c62
 		
 		return primesMatrix;
 	}
 	
 	public int[][] generateNumberMatrix(int maxValue){
 		
-<<<<<<< HEAD
 		int[][] primesMatrix;
 		
 		if(maxValue>=1){
@@ -155,26 +139,10 @@ public class PrimeGenerator {
 		}
 		else{
 			throw new InvalidNumberException();
-=======
-		int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
-		int[][] primesMatrix=new int[rowAndColumns][rowAndColumns];
-		
-		for(int i = 1; i <= maxValue; i++){
-			
-			int row = (i-1) / primesMatrix.length;
-			int column = i - (row * primesMatrix.length) - 1;
-			
-			primesMatrix[row][column] = i;
-			
->>>>>>> 29b2753974c22cc923cc49f27eaa321d129d0c62
 		}
 		
 		return primesMatrix;
 		
 	}
 	
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 29b2753974c22cc923cc49f27eaa321d129d0c62
