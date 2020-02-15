@@ -1,1 +1,148 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*Colors*/
+*{
+	
+	base_color:white;
+	special_color:red;
+	text_color:black;
+	
+}
+
+/*Pane*/
+.pane {
+	-fx-background-color: black;
+}
+
+/*Button*/
+.button {
+	-fx-text-fill: text_color;
+	-fx-background-color: base_color;
+	-fx-background-radius: 5;
+	-fx-font: bold 11pt "Arial";/*HFONT*/
+}
+
+.label {
+	-fx-text-fill: base_color;
+	-fx-font: bold 11pt "Arial";
+}
+
+/*Text Field*/
+.text-field {
+	
+	-fx-focus-color: base_color;
+	-fx-highlight-fill: special_color;
+	-fx-font: bold 11pt "Arial";/*TFONT*/
+}
+
+/*Check Box*/
+.check-box{
+	
+	-fx-text-fill: base_color;
+}
+
+.check-box .box {
+	
+	-fx-background-color: base_color;
+}
+
+.check-box .box .mark {
+	
+	-fx-mark-color: special_color;
+}
+
+
+/*Choice Box*/
+.choice-box {
+	
+  -fx-background-color: base_color;
+  -fx-mark-color: special_color;
+  
+}
+
+.choice-box > .label {
+	
+	-fx-text-fill: text_color;
+	-fx-font: bold 11pt "Arial";/*TFONT*/
+}
+
+.choice-box .context-menu { 
+	
+	-fx-background-color: base_color;
+	-fx-font: bold 11pt "Arial";/*TFONT*/
+}
+
+.choice-box .menu-item:focused { 
+	
+	-fx-background-color: special_color;
+}
+
+.choice-box .menu-item > .label { 
+	
+	-fx-text-fill: text_color;
+	-fx-font: bold 11pt "Arial";/*TFONT*/
+}
+
+.choice-box .menu-item:focused > .label { 
+	
+	-fx-text-fill: base_color;
+}
+
+/*Dialog Pane*/
+.dialog {
+	
+	-fx-background-color: base_color;
+}
+
+.dialog > *.buttonbar > *.container {
+	
+	-fx-background-color: base_color;/*BAD*/
+}
+
+.dialog > *.content.label {
+	
+	-fx-text-fill:text_color;
+	-fx-font: bold 11pt "Arial";/*TFONT*/
+}
+
+.dialog *.button {
+	
+	-fx-background-color: special_color;
+	-fx-font: bold 10pt "Arial";/*HFONT*/
+	-fx-border-radius: 5;
+	-fx-text-fill: text_color;
+
+}
+
+.dialog:header *.header-panel {
+	
+	-fx-background-color: base_color;/*BAD*/
+}
+
+.vehicle {
+	
+	-fx-background-color: transparent;
+	-fx-font: bold 11pt "Arial";
+}
+
+.delete {
+	
+	-fx-background-color: black;
+	-fx-text-fill: special_color;
+}
+
+.register{
+	-fx-text-fill: special_color;
+}
+
+#logo {
+	
+	-fx-image: url(TODO);
+	-fx-background-size:100% 100%;
+}
+
+/*Specials*/
+#log-out {
+	
+	-fx-background-color: special_color;
+	-fx-background-radius: 5;
+	
+}
