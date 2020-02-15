@@ -24,15 +24,16 @@ public class ControlMenu implements Initializable {
 	
 	private PrimeGenerator generator;
 	
+	@FXML VBox pane;
 	@FXML private TextField n;
 	@FXML private ChoiceBox<String> choiceBox;
-	@FXML private VBox matrix;
+	private Label[][] matrix;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		generator=new PrimeGenerator();
-		choiceBox.getItems().addAll("a","c");
+		choiceBox.getItems().addAll("a","b","c");
 		choiceBox.getSelectionModel().selectFirst();
 		
 		n.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
@@ -54,18 +55,26 @@ public class ControlMenu implements Initializable {
 	}
 	
 	public void generateMatrix(){
-		
-		matrix.getChildren().clear();
+		pane.getChildren().clear();
 		int size=Integer.parseInt(n.getText());
+		
+		GridPane matrix=new GridPane();
+		pane.getChildren().add(matrix);
 		
 		//GenerateMatrix
 		int[][] numberMatrix=generator.generateNumberMatrix(size);
+		this.matrix=new Label[numberMatrix.length][numberMatrix[0].length];
 		
 		for(int x=0; x<numberMatrix.length; x++){
-			HBox row=new HBox();
-			matrix.getChildren().add(row);
+			RowConstraints row=new RowConstraints();
+			row.setVgrow(Priority.ALWAYS);
+			matrix.getRowConstraints().add(row);
 		}
-		
+		for(int y=0; y<numberMatrix[0].length; y++){
+			ColumnConstraints column=new ColumnConstraints();
+			column.setHgrow(Priority.ALWAYS);
+			matrix.getColumnConstraints().add(column);
+		}
 
 		for(int x=0; x<numberMatrix.length; x++){
 			for(int y=0; y<numberMatrix[0].length; y++){
@@ -79,8 +88,8 @@ public class ControlMenu implements Initializable {
 				number.setMaxWidth(Double.MAX_VALUE);
 				number.setMaxHeight(Double.MAX_VALUE);
 				
-				HBox row=(HBox)matrix.getChildren().get(x);
-				row.getChildren().add(number);
+				this.matrix[x][y]=number;
+				matrix.add(number, y, x);
 				
 			}
 		}
@@ -89,6 +98,9 @@ public class ControlMenu implements Initializable {
 		if(choiceBox.getValue().equals("a")){
 			new ColoringThread(this, generator.generatePrimesMatrix1(size), "a").start();
 		}
+		else if(choiceBox.getValue().equals("b")){
+			new ColoringThread(this, generator.generatePrimesMatrix2(size), "b").start();
+		}
 		else if(choiceBox.getValue().equals("c")){
 			new ColoringThread(this, generator.generatePrimesMatrix3(size), "c").start();
 		}
@@ -96,13 +108,11 @@ public class ControlMenu implements Initializable {
 	}
 	
 	public void colorNumber(int x, int y, boolean color){
-		HBox row=(HBox)matrix.getChildren().get(x);
-		Label number=(Label)row.getChildren().get(y);
 		if(color){
-			number.setTextFill(Color.GREEN);
+			matrix[x][y].setTextFill(Color.GREEN);
 		}
 		else {
-			number.setTextFill(Color.RED);
+			matrix[x][y].setTextFill(Color.RED);
 		}
 	}
 	

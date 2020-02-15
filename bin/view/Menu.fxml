@@ -58,6 +58,6 @@
             <Button mnemonicParsing="false" onAction="#generateMatrix" text="Generate" />
          </children>
       </VBox>
-      <VBox fx:id="matrix" alignment="CENTER" prefHeight="382.0" prefWidth="500.0" />
+      <VBox fx:id="pane" alignment="CENTER" prefHeight="382.0" prefWidth="500.0" />
    </children>
 </VBox>

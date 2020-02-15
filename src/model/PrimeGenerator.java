@@ -47,12 +47,10 @@ public class PrimeGenerator {
 		
 		int i=2;
 		while((i+i)<=maxValue){
-			System.out.println("Prime:"+i);
 			for(int j=i+i; j<=maxValue; j+=i){
 				int row=(j-1)/primesMatrix.length;
 				int column=j-(row*primesMatrix.length)-1;
 				primesMatrix[row][column]=false;
-				System.out.println("Not Prime:"+j);
 			}
 			
 			boolean found=false;
