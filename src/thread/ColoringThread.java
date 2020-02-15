@@ -33,7 +33,7 @@ public class ColoringThread extends Thread{
 			
 		}
 		else if(METHOD3.equals(method)){
-			
+			c();
 		}
 		else{
 			
@@ -43,7 +43,7 @@ public class ColoringThread extends Thread{
 	//Methods
 	public void a() {
 		
-		for(int i=1; i<colorMatrix.length; i++){
+		for(int i=1; i<=(colorMatrix.length*colorMatrix.length); i++){
 			
 			int x=(i-1)/colorMatrix.length;
 			int y=i-((x)*colorMatrix.length)-1;
@@ -53,10 +53,31 @@ public class ColoringThread extends Thread{
 			};
 			Platform.runLater(color);
 			
-			try {sleep(100);} catch (InterruptedException e)
+			try {sleep(75);} catch (InterruptedException e)
 			{e.printStackTrace();}
 			
 		}
+	}
+	
+	public void c() {
+		
+		for(int i=1; i<=(colorMatrix.length*colorMatrix.length); i++){
+			
+			int x=(i-1)/colorMatrix.length;
+			int y=i-((x)*colorMatrix.length)-1;
+			
+			Runnable color=new Runnable() {
+				public void run() {controller.colorNumber(x, y, colorMatrix[x][y]);}
+			};
+			Platform.runLater(color);
+			
+			if( (i % 2 != 0) && (i % 10 != 5) ) {
+				try {sleep(500);} catch (InterruptedException e)
+				{e.printStackTrace();}
+			}
+			
+		}
+		
 	}
 	
 }
