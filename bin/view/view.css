@@ -9,7 +9,19 @@
 
 /*Pane*/
 .pane {
-	-fx-background-color: black;
+	-fx-background-color: rgb(123, 21, 146);
+}
+
+.prime {
+	
+	-fx-text-fill: rgb(247, 239, 16);
+	-fx-font: bold 11pt "Impact";
+	-fx-background-color: rgb(112, 24, 110)
+}
+.composite {
+	
+	-fx-text-fill: rgb(255, 153, 0);
+	-fx-font: bold 11pt "Impact";
 }
 
 /*Button*/

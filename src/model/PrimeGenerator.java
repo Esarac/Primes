@@ -45,23 +45,22 @@ public class PrimeGenerator {
 			Arrays.fill(primesRow, Boolean.TRUE);
 		}
 		
-		int i=2;
-		while((i+i)<=maxValue){
-			for(int j=i*i; j<=maxValue; j+=i){
-				int row=(j-1)/primesMatrix.length;
-				int column=j-(row*primesMatrix.length)-1;
-				primesMatrix[row][column]=false;
-			}
+		for(int i=2; (i*i)<=maxValue; i++){
 			
-			boolean found=false;
-			for(int j=i+1; (j<=maxValue) && (!found); j++){
-				int row=(j-1)/primesMatrix.length;
-				int column=j-(row*primesMatrix.length)-1;
+			int sq=i*i;
+			int row=(sq-1)/primesMatrix.length;
+			int column=sq-(row*primesMatrix.length)-1;
+			
+			if(primesMatrix[row][column]){
 				
-				if(primesMatrix[row][column]){
-					found=true;
-					i=j;
+				for(int j=sq; j<=maxValue; j+=i){
+					
+					row=(j-1)/primesMatrix.length;
+					column=j-(row*primesMatrix.length)-1;
+					primesMatrix[row][column]=false;
+					
 				}
+				
 			}
 			
 		}

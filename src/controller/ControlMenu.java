@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -92,6 +93,7 @@ public class ControlMenu implements Initializable {
 				Label number = new Label(textNumber);
 				number.setMaxWidth(Double.MAX_VALUE);
 				number.setMaxHeight(Double.MAX_VALUE);
+				number.setAlignment(Pos.CENTER);
 				
 				this.matrix[x][y]=number;
 				matrix.add(number, y, x);
@@ -114,17 +116,17 @@ public class ControlMenu implements Initializable {
 		
 	}
 	
-	public void colorNumber(int x, int y, boolean color){
+	public void colorNumber(int x, int y, boolean color) {
 		
-		Color red = Color.rgb(255, 0, 102);
-		Color green = Color.rgb(0, 255, 153);
+		matrix[x][y].getStyleClass().clear();
 		
 		if(color){
 			
-			matrix[x][y].setTextFill(green);
+			matrix[x][y].getStyleClass().add("prime");
 		}
 		else {
-			matrix[x][y].setTextFill(red);
+			
+			matrix[x][y].getStyleClass().add("composite");
 		}
 	}
 }
