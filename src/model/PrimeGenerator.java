@@ -34,8 +34,8 @@ public class PrimeGenerator {
 			
 		}
 		
-		
 		return primesMatrix;
+		
 	}
 	
 	public boolean[][] generatePrimesMatrix2(int maxValue) {
@@ -47,7 +47,7 @@ public class PrimeGenerator {
 		
 		int i=2;
 		while((i+i)<=maxValue){
-			for(int j=i+i; j<=maxValue; j+=i){
+			for(int j=i*i; j<=maxValue; j+=i){
 				int row=(j-1)/primesMatrix.length;
 				int column=j-(row*primesMatrix.length)-1;
 				primesMatrix[row][column]=false;
@@ -122,7 +122,7 @@ public class PrimeGenerator {
 		
 		int[][] primesMatrix;
 		
-		if(maxValue>=1){
+		if(maxValue >= 1){
 			int rowAndColumns=(int) Math.ceil(Math.sqrt(maxValue));
 			primesMatrix=new int[rowAndColumns][rowAndColumns];
 			
