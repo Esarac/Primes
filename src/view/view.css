@@ -2,7 +2,7 @@
 *{
 	
 	base_color:white;
-	special_color:red;
+	special_color:rgb(255, 0, 102);
 	text_color:black;
 	
 }
@@ -10,19 +10,45 @@
 /*Pane*/
 .pane {
 	-fx-background-color: rgb(123, 21, 146);
+	-fx-background-image: url(../../med/Background.png);
+	-fx-background-size: cover;
 }
 
-.prime {
+#default {
 	
-	-fx-text-fill: rgb(247, 239, 16);
-	-fx-font: bold 11pt "Impact";
-	-fx-background-color: rgb(112, 24, 110)
+	-fx-font: bold 25px Impact;
+	-fx-text-fill: white;
 }
-.composite {
+
+#prime {
 	
-	-fx-text-fill: rgb(255, 153, 0);
-	-fx-font: bold 11pt "Impact";
+    -fx-font: bold 25px Impact;
+	-fx-text-fill: white;
+    -fx-background-image: url(../../med/Green.png);
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
 }
+
+#prime .text {
+    -fx-stroke: rgb(34, 166, 170);
+    -fx-stroke-width: 1;
+}
+#composite {
+	
+	-fx-font: bold 25px Impact;
+	-fx-text-fill: white;
+    -fx-background-image: url(../../med/Red.png);
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+#composite .text {
+    -fx-stroke: rgb(224, 26, 62);
+    -fx-stroke-width: 1;
+}
+
 
 /*Button*/
 .button {
@@ -37,6 +63,24 @@
 	-fx-font: bold 11pt "Arial";
 }
 
+.outline.label .text {
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
+
+#scroll {
+	-fx-background-color: transparent;
+}
+
+#scroll .viewport {
+   -fx-background-color: transparent;
+}
+
+#grid {
+	
+	-fx-background-color: transparent;
+}
+
 /*Text Field*/
 .text-field {
 	
@@ -44,6 +88,7 @@
 	-fx-highlight-fill: special_color;
 	-fx-font: bold 11pt "Arial";/*TFONT*/
 }
+
 
 /*Check Box*/
 .check-box{
@@ -147,7 +192,7 @@
 
 #logo {
 	
-	-fx-image: url(TODO);
+	-fx-image: url(../../med/Logo.png);
 	-fx-background-size:100% 100%;
 }
 

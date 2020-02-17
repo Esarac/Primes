@@ -3,6 +3,7 @@ package view;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,8 @@ public class Main extends Application {
 			root.getStyleClass().add("pane");
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("New Super Prime Matrix Generator");
+			primaryStage.getIcons().add(new Image("file:med/Logo.png"));
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
